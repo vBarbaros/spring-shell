@@ -1,0 +1,166 @@
+package com.example.springshell;
+
+import org.springframework.aop.framework.autoproxy.InfrastructureAdvisorAutoProxyCreator__BeanDefinitions;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+import org.springframework.boot.autoconfigure.AutoConfigurationPackages__BeanDefinitions;
+import org.springframework.boot.autoconfigure.aop.AopAutoConfiguration__BeanDefinitions;
+import org.springframework.boot.autoconfigure.availability.ApplicationAvailabilityAutoConfiguration__BeanDefinitions;
+import org.springframework.boot.autoconfigure.context.ConfigurationPropertiesAutoConfiguration__BeanDefinitions;
+import org.springframework.boot.autoconfigure.context.LifecycleAutoConfiguration__BeanDefinitions;
+import org.springframework.boot.autoconfigure.context.LifecycleProperties__BeanDefinitions;
+import org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoConfiguration__BeanDefinitions;
+import org.springframework.boot.autoconfigure.info.ProjectInfoAutoConfiguration__BeanDefinitions;
+import org.springframework.boot.autoconfigure.info.ProjectInfoProperties__BeanDefinitions;
+import org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration__BeanDefinitions;
+import org.springframework.boot.autoconfigure.sql.init.SqlInitializationProperties__BeanDefinitions;
+import org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration__BeanDefinitions;
+import org.springframework.boot.autoconfigure.task.TaskExecutionProperties__BeanDefinitions;
+import org.springframework.boot.autoconfigure.task.TaskSchedulingAutoConfiguration__BeanDefinitions;
+import org.springframework.boot.autoconfigure.task.TaskSchedulingProperties__BeanDefinitions;
+import org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration__BeanDefinitions;
+import org.springframework.boot.context.properties.BoundConfigurationProperties__BeanDefinitions;
+import org.springframework.boot.context.properties.ConfigurationPropertiesBinder__BeanDefinitions;
+import org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor__BeanDefinitions;
+import org.springframework.boot.sql.init.dependency.DatabaseInitializationDependencyConfigurer__BeanDefinitions;
+import org.springframework.boot.validation.beanvalidation.MethodValidationExcludeFilter__BeanDefinitions;
+import org.springframework.context.event.DefaultEventListenerFactory__BeanDefinitions;
+import org.springframework.context.event.EventListenerMethodProcessor__BeanDefinitions;
+import org.springframework.shell.boot.ApplicationRunnerAutoConfiguration__BeanDefinitions;
+import org.springframework.shell.boot.CommandCatalogAutoConfiguration__BeanDefinitions;
+import org.springframework.shell.boot.CompleterAutoConfiguration__BeanDefinitions;
+import org.springframework.shell.boot.ComponentFlowAutoConfiguration__BeanDefinitions;
+import org.springframework.shell.boot.ExitCodeAutoConfiguration__BeanDefinitions;
+import org.springframework.shell.boot.JLineAutoConfiguration__BeanDefinitions;
+import org.springframework.shell.boot.JLineShellAutoConfiguration__BeanDefinitions;
+import org.springframework.shell.boot.LineReaderAutoConfiguration__BeanDefinitions;
+import org.springframework.shell.boot.ParameterResolverAutoConfiguration__BeanDefinitions;
+import org.springframework.shell.boot.ShellContextAutoConfiguration__BeanDefinitions;
+import org.springframework.shell.boot.ShellRunnerAutoConfiguration__BeanDefinitions;
+import org.springframework.shell.boot.SpringShellAutoConfiguration__BeanDefinitions;
+import org.springframework.shell.boot.SpringShellProperties__BeanDefinitions;
+import org.springframework.shell.boot.StandardAPIAutoConfiguration__BeanDefinitions;
+import org.springframework.shell.boot.StandardCommandsAutoConfiguration__BeanDefinitions;
+import org.springframework.shell.boot.ThemingAutoConfiguration__BeanDefinitions;
+import org.springframework.shell.boot.UserConfigAutoConfiguration__BeanDefinitions;
+import org.springframework.shell.result.ResultHandlerConfig__BeanDefinitions;
+
+/**
+ * Register bean definitions for the bean factory.
+ */
+public class SpringShellApplication__BeanFactoryRegistrations {
+  /**
+   * Register the bean definitions.
+   */
+  public void registerBeanDefinitions(DefaultListableBeanFactory beanFactory) {
+    beanFactory.registerBeanDefinition("org.springframework.context.event.internalEventListenerProcessor", EventListenerMethodProcessor__BeanDefinitions.getInternalEventListenerProcessorBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.context.event.internalEventListenerFactory", DefaultEventListenerFactory__BeanDefinitions.getInternalEventListenerFactoryBeanDefinition());
+    beanFactory.registerBeanDefinition("springShellApplication", SpringShellApplication__BeanDefinitions.getSpringShellApplicationBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.boot.autoconfigure.AutoConfigurationPackages", AutoConfigurationPackages__BeanDefinitions.BasePackages__BeanDefinitions.getAutoConfigurationPackagesBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoConfiguration", PropertyPlaceholderAutoConfiguration__BeanDefinitions.getPropertyPlaceholderAutoConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("propertySourcesPlaceholderConfigurer", PropertyPlaceholderAutoConfiguration__BeanDefinitions.getPropertySourcesPlaceholderConfigurerBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.boot.autoconfigure.aop.AopAutoConfiguration$ClassProxyingConfiguration", AopAutoConfiguration__BeanDefinitions.ClassProxyingConfiguration__BeanDefinitions.getClassProxyingConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("forceAutoProxyCreatorToUseClassProxying", AopAutoConfiguration__BeanDefinitions.ClassProxyingConfiguration__BeanDefinitions.getForceAutoProxyCreatorToUseClassProxyingBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.boot.autoconfigure.aop.AopAutoConfiguration", AopAutoConfiguration__BeanDefinitions.getAopAutoConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.boot.autoconfigure.availability.ApplicationAvailabilityAutoConfiguration", ApplicationAvailabilityAutoConfiguration__BeanDefinitions.getApplicationAvailabilityAutoConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("applicationAvailability", ApplicationAvailabilityAutoConfiguration__BeanDefinitions.getApplicationAvailabilityBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration", ValidationAutoConfiguration__BeanDefinitions.getValidationAutoConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("defaultValidator", ValidationAutoConfiguration__BeanDefinitions.getDefaultValidatorBeanDefinition());
+    beanFactory.registerBeanDefinition("methodValidationPostProcessor", ValidationAutoConfiguration__BeanDefinitions.getMethodValidationPostProcessorBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.boot.autoconfigure.context.ConfigurationPropertiesAutoConfiguration", ConfigurationPropertiesAutoConfiguration__BeanDefinitions.getConfigurationPropertiesAutoConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor", ConfigurationPropertiesBindingPostProcessor__BeanDefinitions.getConfigurationPropertiesBindingPostProcessorBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.boot.context.internalConfigurationPropertiesBinderFactory", ConfigurationPropertiesBinder__BeanDefinitions.Factory__BeanDefinitions.getInternalConfigurationPropertiesBinderFactoryBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.boot.context.internalConfigurationPropertiesBinder", ConfigurationPropertiesBinder__BeanDefinitions.getInternalConfigurationPropertiesBinderBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.boot.context.properties.BoundConfigurationProperties", BoundConfigurationProperties__BeanDefinitions.getBoundConfigurationPropertiesBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.boot.context.properties.EnableConfigurationPropertiesRegistrar.methodValidationExcludeFilter", MethodValidationExcludeFilter__BeanDefinitions.getMethodValidationExcludeFilterBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.boot.autoconfigure.context.LifecycleAutoConfiguration", LifecycleAutoConfiguration__BeanDefinitions.getLifecycleAutoConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("lifecycleProcessor", LifecycleAutoConfiguration__BeanDefinitions.getLifecycleProcessorBeanDefinition());
+    beanFactory.registerBeanDefinition("spring.lifecycle-org.springframework.boot.autoconfigure.context.LifecycleProperties", LifecycleProperties__BeanDefinitions.getLifecyclePropertiesBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.boot.autoconfigure.info.ProjectInfoAutoConfiguration", ProjectInfoAutoConfiguration__BeanDefinitions.getProjectInfoAutoConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("spring.info-org.springframework.boot.autoconfigure.info.ProjectInfoProperties", ProjectInfoProperties__BeanDefinitions.getProjectInfoPropertiesBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.boot.autoconfigure.sql.init.SqlInitializationAutoConfiguration", SqlInitializationAutoConfiguration__BeanDefinitions.getSqlInitializationAutoConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("spring.sql.init-org.springframework.boot.autoconfigure.sql.init.SqlInitializationProperties", SqlInitializationProperties__BeanDefinitions.getSqlInitializationPropertiesBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.boot.sql.init.dependency.DatabaseInitializationDependencyConfigurer$DependsOnDatabaseInitializationPostProcessor", DatabaseInitializationDependencyConfigurer__BeanDefinitions.DependsOnDatabaseInitializationPostProcessor__BeanDefinitions.getDependsOnDatabaseInitializationPostProcessorBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration", TaskExecutionAutoConfiguration__BeanDefinitions.getTaskExecutionAutoConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("taskExecutorBuilder", TaskExecutionAutoConfiguration__BeanDefinitions.getTaskExecutorBuilderBeanDefinition());
+    beanFactory.registerBeanDefinition("applicationTaskExecutor", TaskExecutionAutoConfiguration__BeanDefinitions.getApplicationTaskExecutorBeanDefinition());
+    beanFactory.registerBeanDefinition("spring.task.execution-org.springframework.boot.autoconfigure.task.TaskExecutionProperties", TaskExecutionProperties__BeanDefinitions.getTaskExecutionPropertiesBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.boot.autoconfigure.task.TaskSchedulingAutoConfiguration", TaskSchedulingAutoConfiguration__BeanDefinitions.getTaskSchedulingAutoConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("taskSchedulerBuilder", TaskSchedulingAutoConfiguration__BeanDefinitions.getTaskSchedulerBuilderBeanDefinition());
+    beanFactory.registerBeanDefinition("spring.task.scheduling-org.springframework.boot.autoconfigure.task.TaskSchedulingProperties", TaskSchedulingProperties__BeanDefinitions.getTaskSchedulingPropertiesBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.shell.boot.ApplicationRunnerAutoConfiguration", ApplicationRunnerAutoConfiguration__BeanDefinitions.getApplicationRunnerAutoConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("defaultShellApplicationRunner", ApplicationRunnerAutoConfiguration__BeanDefinitions.getDefaultShellApplicationRunnerBeanDefinition());
+    beanFactory.registerBeanDefinition("spring.shell-org.springframework.shell.boot.SpringShellProperties", SpringShellProperties__BeanDefinitions.getSpringShellPropertiesBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.shell.boot.CommandCatalogAutoConfiguration", CommandCatalogAutoConfiguration__BeanDefinitions.getCommandCatalogAutoConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("commandCatalog", CommandCatalogAutoConfiguration__BeanDefinitions.getCommandCatalogBeanDefinition());
+    beanFactory.registerBeanDefinition("defaultCommandCatalogCustomizer", CommandCatalogAutoConfiguration__BeanDefinitions.getDefaultCommandCatalogCustomizerBeanDefinition());
+    beanFactory.registerBeanDefinition("helpOptionsCommandRegistrationCustomizer", CommandCatalogAutoConfiguration__BeanDefinitions.getHelpOptionsCommandRegistrationCustomizerBeanDefinition());
+    beanFactory.registerBeanDefinition("commandRegistrationBuilderSupplier", CommandCatalogAutoConfiguration__BeanDefinitions.getCommandRegistrationBuilderSupplierBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.shell.boot.CompleterAutoConfiguration", CompleterAutoConfiguration__BeanDefinitions.getCompleterAutoConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("completer", CompleterAutoConfiguration__BeanDefinitions.getCompleterBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.shell.boot.ComponentFlowAutoConfiguration$ComponentFlowConfiguration", ComponentFlowAutoConfiguration__BeanDefinitions.ComponentFlowConfiguration__BeanDefinitions.getComponentFlowConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("shellCommonComponentFlowCustomizer", ComponentFlowAutoConfiguration__BeanDefinitions.ComponentFlowConfiguration__BeanDefinitions.getShellCommonComponentFlowCustomizerBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.shell.boot.ComponentFlowAutoConfiguration", ComponentFlowAutoConfiguration__BeanDefinitions.getComponentFlowAutoConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("componentFlowBuilder", ComponentFlowAutoConfiguration__BeanDefinitions.getComponentFlowBuilderBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.shell.boot.ExitCodeAutoConfiguration", ExitCodeAutoConfiguration__BeanDefinitions.getExitCodeAutoConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("shellExitCodeExceptionMapper", ExitCodeAutoConfiguration__BeanDefinitions.getShellExitCodeExceptionMapperBeanDefinition());
+    beanFactory.registerBeanDefinition("shellExitCodeMappingsExceptionMapper", ExitCodeAutoConfiguration__BeanDefinitions.getShellExitCodeMappingsExceptionMapperBeanDefinition());
+    beanFactory.registerBeanDefinition("exitCodeExceptionProvider", ExitCodeAutoConfiguration__BeanDefinitions.getExitCodeExceptionProviderBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.shell.boot.JLineAutoConfiguration$JLineHistoryConfiguration", JLineAutoConfiguration__BeanDefinitions.JLineHistoryConfiguration__BeanDefinitions.getJLineHistoryConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("history", JLineAutoConfiguration__BeanDefinitions.JLineHistoryConfiguration__BeanDefinitions.getHistoryBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.shell.boot.JLineAutoConfiguration", JLineAutoConfiguration__BeanDefinitions.getJLineAutoConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.shell.boot.JLineShellAutoConfiguration", JLineShellAutoConfiguration__BeanDefinitions.getJLineShellAutoConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("terminal", JLineShellAutoConfiguration__BeanDefinitions.getTerminalBeanDefinition());
+    beanFactory.registerBeanDefinition("promptProvider", JLineShellAutoConfiguration__BeanDefinitions.getPromptProviderBeanDefinition());
+    beanFactory.registerBeanDefinition("parser", JLineShellAutoConfiguration__BeanDefinitions.getParserBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.shell.boot.LineReaderAutoConfiguration", LineReaderAutoConfiguration__BeanDefinitions.getLineReaderAutoConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("lineReader", LineReaderAutoConfiguration__BeanDefinitions.getLineReaderBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.shell.boot.ParameterResolverAutoConfiguration", ParameterResolverAutoConfiguration__BeanDefinitions.getParameterResolverAutoConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("defaultCompletionResolver", ParameterResolverAutoConfiguration__BeanDefinitions.getDefaultCompletionResolverBeanDefinition());
+    beanFactory.registerBeanDefinition("commandExecutionHandlerMethodArgumentResolvers", ParameterResolverAutoConfiguration__BeanDefinitions.getCommandExecutionHandlerMethodArgumentResolversBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.shell.boot.ShellContextAutoConfiguration", ShellContextAutoConfiguration__BeanDefinitions.getShellContextAutoConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("shellContext", ShellContextAutoConfiguration__BeanDefinitions.getShellContextBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.shell.boot.ShellRunnerAutoConfiguration", ShellRunnerAutoConfiguration__BeanDefinitions.getShellRunnerAutoConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("interactiveApplicationRunner", ShellRunnerAutoConfiguration__BeanDefinitions.getInteractiveApplicationRunnerBeanDefinition());
+    beanFactory.registerBeanDefinition("nonInteractiveApplicationRunner", ShellRunnerAutoConfiguration__BeanDefinitions.getNonInteractiveApplicationRunnerBeanDefinition());
+    beanFactory.registerBeanDefinition("scriptApplicationRunner", ShellRunnerAutoConfiguration__BeanDefinitions.getScriptApplicationRunnerBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.shell.result.ResultHandlerConfig", ResultHandlerConfig__BeanDefinitions.getResultHandlerConfigBeanDefinition());
+    beanFactory.registerBeanDefinition("terminalSizeAwareResultHandler", ResultHandlerConfig__BeanDefinitions.getTerminalSizeAwareResultHandlerBeanDefinition());
+    beanFactory.registerBeanDefinition("attributedCharSequenceResultHandler", ResultHandlerConfig__BeanDefinitions.getAttributedCharSequenceResultHandlerBeanDefinition());
+    beanFactory.registerBeanDefinition("defaultResultHandler", ResultHandlerConfig__BeanDefinitions.getDefaultResultHandlerBeanDefinition());
+    beanFactory.registerBeanDefinition("parameterValidationExceptionResultHandler", ResultHandlerConfig__BeanDefinitions.getParameterValidationExceptionResultHandlerBeanDefinition());
+    beanFactory.registerBeanDefinition("commandParserExceptionResolver", ResultHandlerConfig__BeanDefinitions.getCommandParserExceptionResolverBeanDefinition());
+    beanFactory.registerBeanDefinition("throwableResultHandler", ResultHandlerConfig__BeanDefinitions.getThrowableResultHandlerBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.shell.boot.SpringShellAutoConfiguration", SpringShellAutoConfiguration__BeanDefinitions.getSpringShellAutoConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("shellConversionServiceSupplier", SpringShellAutoConfiguration__BeanDefinitions.getShellConversionServiceSupplierBeanDefinition());
+    beanFactory.registerBeanDefinition("resultHandlerService", SpringShellAutoConfiguration__BeanDefinitions.getResultHandlerServiceBeanDefinition());
+    beanFactory.registerBeanDefinition("shell", SpringShellAutoConfiguration__BeanDefinitions.getShellBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.shell.boot.StandardAPIAutoConfiguration", StandardAPIAutoConfiguration__BeanDefinitions.getStandardAPIAutoConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("commandValueProvider", StandardAPIAutoConfiguration__BeanDefinitions.getCommandValueProviderBeanDefinition());
+    beanFactory.registerBeanDefinition("enumValueProvider", StandardAPIAutoConfiguration__BeanDefinitions.getEnumValueProviderBeanDefinition());
+    beanFactory.registerBeanDefinition("fileValueProvider", StandardAPIAutoConfiguration__BeanDefinitions.getFileValueProviderBeanDefinition());
+    beanFactory.registerBeanDefinition("standardMethodTargetResolver", StandardAPIAutoConfiguration__BeanDefinitions.getStandardMethodTargetResolverBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.shell.boot.StandardCommandsAutoConfiguration", StandardCommandsAutoConfiguration__BeanDefinitions.getStandardCommandsAutoConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("help", StandardCommandsAutoConfiguration__BeanDefinitions.getHelpBeanDefinition());
+    beanFactory.registerBeanDefinition("clear", StandardCommandsAutoConfiguration__BeanDefinitions.getClearBeanDefinition());
+    beanFactory.registerBeanDefinition("quit", StandardCommandsAutoConfiguration__BeanDefinitions.getQuitBeanDefinition());
+    beanFactory.registerBeanDefinition("stacktrace", StandardCommandsAutoConfiguration__BeanDefinitions.getStacktraceBeanDefinition());
+    beanFactory.registerBeanDefinition("script", StandardCommandsAutoConfiguration__BeanDefinitions.getScriptBeanDefinition());
+    beanFactory.registerBeanDefinition("historyCommand", StandardCommandsAutoConfiguration__BeanDefinitions.getHistoryCommandBeanDefinition());
+    beanFactory.registerBeanDefinition("version", StandardCommandsAutoConfiguration__BeanDefinitions.getVersionBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.shell.boot.ThemingAutoConfiguration", ThemingAutoConfiguration__BeanDefinitions.getThemingAutoConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("themeActive", ThemingAutoConfiguration__BeanDefinitions.getThemeActiveBeanDefinition());
+    beanFactory.registerBeanDefinition("themeRegistry", ThemingAutoConfiguration__BeanDefinitions.getThemeRegistryBeanDefinition());
+    beanFactory.registerBeanDefinition("shellThemeResolver", ThemingAutoConfiguration__BeanDefinitions.getShellThemeResolverBeanDefinition());
+    beanFactory.registerBeanDefinition("templateExecutor", ThemingAutoConfiguration__BeanDefinitions.getTemplateExecutorBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.shell.boot.UserConfigAutoConfiguration", UserConfigAutoConfiguration__BeanDefinitions.getUserConfigAutoConfigurationBeanDefinition());
+    beanFactory.registerBeanDefinition("userConfigPathProvider", UserConfigAutoConfiguration__BeanDefinitions.getUserConfigPathProviderBeanDefinition());
+    beanFactory.registerBeanDefinition("org.springframework.aop.config.internalAutoProxyCreator", InfrastructureAdvisorAutoProxyCreator__BeanDefinitions.getInternalAutoProxyCreatorBeanDefinition());
+  }
+
+  /**
+   * Register the aliases.
+   */
+  public void registerAliases(DefaultListableBeanFactory beanFactory) {
+    beanFactory.registerAlias("applicationTaskExecutor", "taskExecutor");
+  }
+}

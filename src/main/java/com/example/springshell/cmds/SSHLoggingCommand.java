@@ -4,10 +4,12 @@
 package com.example.springshell.cmds;
 
 import org.springframework.shell.Availability;
+import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 
 import java.util.logging.Logger;
 
+@ShellComponent
 public class SSHLoggingCommand {
     Logger log = Logger.getLogger(SSHLoggingCommand.class.getName());
     private boolean signedIn;

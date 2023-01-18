@@ -7,6 +7,7 @@ import lombok.val;
 import org.springframework.http.ResponseEntity;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
+import org.springframework.shell.standard.ShellOption;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.logging.Logger;
@@ -15,25 +16,31 @@ import static java.lang.String.format;
 
 @ShellComponent
 public class RestApiCalls {
+    final String CVE_API_HOSTNAME = "https://cve.circl.lu/api/";
     Logger log = Logger.getLogger(RestApiCalls.class.getName());
 
-    /**
-     * Declare CLI cmd with default params
-     *
-     */
-    @ShellMethod(key = "get", value = "connect to remote server")
-//    public void cget(@ShellOption(value = "-s", defaultValue = "default-server") String remoteServer) {
-    public void get() {
+    @ShellMethod(key = "cpe-new", value = "Converts a CPE according to CPE 2.3 version conventions")
+    public void cpeNew(@ShellOption(value = "-v", defaultValue = "2.3") String toCpeVersion){
         RestTemplate restTemplate = new RestTemplate();
-        val cpe = "cpe:2.3:o:microsoft:windows_vista:6.0:sp1:-:-:home_premium:-:-:x64:-";
-        String resourceUrl = "https://cve.circl.lu/api/cpe2.2/" + cpe;
+        String urlConvertToCpeVersion = getFinalUrlConvertToCpeVersion(toCpeVersion);
+        System.out.println(urlConvertToCpeVersion);
 
         // Fetch JSON response as String wrapped in ResponseEntity
-        ResponseEntity<String> response = restTemplate.getForEntity(resourceUrl, String.class);
-        String productsJson = response.getBody();
-
-        System.out.println(productsJson);
+        ResponseEntity<String> convertedCpe = restTemplate.getForEntity(urlConvertToCpeVersion, String.class);
+        String productsJson = convertedCpe.getBody();
         log.info(format("CPE Return: '%s'", productsJson));
+    }
+
+    private String getFinalUrlConvertToCpeVersion(String toCpeVersion) {
+        val cpe = "cpe:/o:microsoft:windows_vista:6.0:sp1:~-~home_premium~-~x64~-";
+        String resourceUrl = CVE_API_HOSTNAME;
+        if (toCpeVersion.equals("2.2")){
+            resourceUrl += "cpe2.2/";
+        } else if (toCpeVersion.equals("2.3")) {
+            resourceUrl += "cpe2.3/";
+        }
+        resourceUrl += cpe;
+        return resourceUrl;
     }
 
 //    /**

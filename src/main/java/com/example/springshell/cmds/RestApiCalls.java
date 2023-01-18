@@ -43,16 +43,11 @@ public class RestApiCalls {
         return resourceUrl;
     }
 
-//    /**
-//     * Use multi-valued parameters
-//     *
-//     * @param keys
-//     */
-//    @ShellMethod(value = "add keys")
-//    public void sshAdd(@ShellOption(value = "--k", arity = 2) String[] keys) {
-//        log.info(format("Adding keys '%s' '%s'", keys[0], keys[1]));
-//    }
-//
+    @ShellMethod(key = "get-cves", value = "Outputs a list of CVEs related to the product")
+    public void geCveList(@ShellOption(value = "-l", arity = 2) String[] keys) {
+        log.info(format("Adding keys '%s' '%s'", keys[0], keys[1]));
+    }
+
 //    /**
 //     * Work with boolean params
 //     *

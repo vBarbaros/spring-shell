@@ -43,9 +43,19 @@ public class RestApiCalls {
         return resourceUrl;
     }
 
-    @ShellMethod(key = "get-cves", value = "Outputs a list of CVEs related to the product")
-    public void geCveList(@ShellOption(value = "-l", arity = 2) String[] keys) {
-        log.info(format("Adding keys '%s' '%s'", keys[0], keys[1]));
+    @ShellMethod(key = "cve-for", value = "Outputs a list of CVEs related to the product")
+    public void cveFor(@ShellOption(value = "-l", arity = 2) String[] keys) {
+        log.info(format("CVE : '%s', Limit '%s'", keys[0], keys[1]));
+        val cpe = "cpe:2.3:o:microsoft:windows_vista:6.0:sp1:-:-:home_premium:-:-:x64";
+        // cpe:2.3:o:microsoft:windows_vista:6.0:sp1:-:-:home_premium:-:-:x64
+        RestTemplate restTemplate = new RestTemplate();
+        String urlGetCveListForProduct = CVE_API_HOSTNAME + "cvefor/" + keys[0] + "/" + keys[1];
+
+        log.info(format(" GET CVE List : '%s'", urlGetCveListForProduct));
+        // Fetch JSON response as String wrapped in ResponseEntity
+        ResponseEntity<String> convertedCpe = restTemplate.getForEntity(urlGetCveListForProduct, String.class);
+        String productsJson = convertedCpe.getBody();
+        log.info(format("CPE Return: '%s'", productsJson));
     }
 
 //    /**

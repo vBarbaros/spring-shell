@@ -22,3 +22,10 @@
 1673924215278:get
 1674007303122:cpe-new
 1674007936937:cpe-new -v 2.2
+1674056882470:cve-for -l pe:/o:microsoft:windows_vista:6.0:sp1:~-~home_premium~-~x64~- 0
+1674056974903:cpe-to pe:/o:microsoft:windows_vista:6.0:sp1:~-~home_premium~-~x64~-
+1674056986434:cpe-to -v pe:/o:microsoft:windows_vista:6.0:sp1:~-~home_premium~-~x64~-
+1674057014594:cve-to -v cpe:/o:microsoft:windows_vista:6.0:sp1:~-~home_premium~-~x64~-
+1674057024716:cve-to -v 2.3
+1674057042966:cpe-to -v 2.3
+1674057086029:cve-for -l cpe:2.3:o:microsoft:windows_vista:6.0:sp1:-:-:home_premium:-:-:x64 0

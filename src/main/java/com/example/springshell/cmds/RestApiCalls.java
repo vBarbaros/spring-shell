@@ -19,8 +19,8 @@ public class RestApiCalls {
     final String CVE_API_HOSTNAME = "https://cve.circl.lu/api/";
     Logger log = Logger.getLogger(RestApiCalls.class.getName());
 
-    @ShellMethod(key = "cpe-new", value = "Converts a CPE according to CPE 2.3 version conventions")
-    public void cpeNew(@ShellOption(value = "-v", defaultValue = "2.3") String toCpeVersion){
+    @ShellMethod(key = "cpe-to", value = "Converts a CPE according to CPE 2.3 version conventions")
+    public void cpeToVersion(@ShellOption(value = "-v", defaultValue = "2.3") String toCpeVersion){
         RestTemplate restTemplate = new RestTemplate();
         String urlConvertToCpeVersion = getFinalUrlConvertToCpeVersion(toCpeVersion);
         System.out.println(urlConvertToCpeVersion);

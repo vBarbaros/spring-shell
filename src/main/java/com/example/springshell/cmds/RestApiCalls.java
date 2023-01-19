@@ -23,8 +23,8 @@ public class RestApiCalls {
     public void cpeToVersion(@ShellOption(value = "-v", defaultValue = "2.3") String toCpeVersion) {
         String urlConvertToCpeVersion = getFinalUrlConvertToCpeVersion(toCpeVersion);
 
-        String productsJson = callRestApi(urlConvertToCpeVersion);
-        log.info(format("CPE Return: '%s'", productsJson));
+        String json = callRestApi(urlConvertToCpeVersion);
+        log.info(format("CPE Return: '%s'", json));
     }
 
     @ShellMethod(key = "cve-for", value = "Outputs a list of CVEs related to the product")
@@ -34,9 +34,9 @@ public class RestApiCalls {
         // cpe:2.3:o:microsoft:windows_vista:6.0:sp1:-:-:home_premium:-:-:x64
         String urlGetCveListForProduct = CVE_API_HOSTNAME + "cvefor/" + keys[0] + "/" + keys[1];
 
-        log.info(format(" GET CVE List : '%s'", urlGetCveListForProduct));
-        String productsJson = callRestApi(urlGetCveListForProduct);
-        log.info(format("CPE Return: '%s'", productsJson));
+        log.info(format("GET CVE List : '%s'", urlGetCveListForProduct));
+        String json = callRestApi(urlGetCveListForProduct);
+        log.info(format("CPE Return: '%s'", json));
     }
 
     @ShellMethod(key = "cve-info", value = "Outputs all available information for the specified CVE " +
@@ -44,10 +44,26 @@ public class RestApiCalls {
     public void cveInfo(@ShellOption(value = "-i") String cveId) {
         log.info(format("CVE ID : '%s'", cveId));
         // CVE-2016-3333
-        String urlGetCveListForProduct = CVE_API_HOSTNAME + "cve/" + cveId;
-        log.info(format(" GET CVE List : '%s'", urlGetCveListForProduct));
-        String productsJson = callRestApi(urlGetCveListForProduct);
-        log.info(format("CPE Return: '%s'", productsJson));
+        String urlGetInfoOnCveId = CVE_API_HOSTNAME + "cve/" + cveId;
+        log.info(format("GET Info on CVE ID : '%s'", urlGetInfoOnCveId));
+        String json = callRestApi(urlGetInfoOnCveId);
+        log.info(format("CPE Return: '%s'", json));
+    }
+
+    @ShellMethod(key = "cwe-list", value = "Outputs a list of all CWEs (Common Weakness Enumeration).")
+    public void cweList() {
+        String urlGetCweList = CVE_API_HOSTNAME + "cwe";
+        log.info(format(" GET CWE List : '%s'", urlGetCweList));
+        String json = callRestApi(urlGetCweList);
+        log.info(format("CPE Return: '%s'", json));
+    }
+
+    @ShellMethod(key = "cwe-by-id", value = "Returns a CWEs (Common Weakness Enumeration) by it's id.")
+    public void cweById(@ShellOption(value = "-i") int cweId) {
+        String urlGetCweById = CVE_API_HOSTNAME + "cwe/" + cweId;
+        log.info(format(" GET CWE List : '%s'", urlGetCweById));
+        String json = callRestApi(urlGetCweById);
+        log.info(format("CPE Return: '%s'", json));
     }
 
 
@@ -55,8 +71,7 @@ public class RestApiCalls {
         RestTemplate restTemplate = new RestTemplate();
         // Fetch JSON response as String wrapped in ResponseEntity
         ResponseEntity<String> convertedCpe = restTemplate.getForEntity(urlGetCveListForProduct, String.class);
-        String productsJson = convertedCpe.getBody();
-        return productsJson;
+        return convertedCpe.getBody();
     }
 
     private String getFinalUrlConvertToCpeVersion(String toCpeVersion) {

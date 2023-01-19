@@ -30,3 +30,9 @@
 1674057042966:cpe-to -v 2.3
 1674057086029:cve-for -l cpe:2.3:o:microsoft:windows_vista:6.0:sp1:-:-:home_premium:-:-:x64 0
 1674095674923:cve-info -i CVE-2016-3333
+1674096093380:cwe-list
+1674096291463:cwe-by-id -i 5
+1674096306091:cwe-by-id -i 2345
+1674096313532:cwe-list
+1674096330946:cwe-by-id -i 1289
+1674096370480:cwe-by-id -i 2

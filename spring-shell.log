@@ -29,3 +29,4 @@
 1674057024716:cve-to -v 2.3
 1674057042966:cpe-to -v 2.3
 1674057086029:cve-for -l cpe:2.3:o:microsoft:windows_vista:6.0:sp1:-:-:home_premium:-:-:x64 0
+1674095674923:cve-info -i CVE-2016-3333

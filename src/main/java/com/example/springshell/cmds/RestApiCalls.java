@@ -39,6 +39,18 @@ public class RestApiCalls {
         log.info(format("CPE Return: '%s'", productsJson));
     }
 
+    @ShellMethod(key = "cve-info", value = "Outputs all available information for the specified CVE " +
+            "(Common Vulnerability and Exposure), " + "in JSON format.")
+    public void cveInfo(@ShellOption(value = "-i") String cveId) {
+        log.info(format("CVE ID : '%s'", cveId));
+        // CVE-2016-3333
+        String urlGetCveListForProduct = CVE_API_HOSTNAME + "cve/" + cveId;
+        log.info(format(" GET CVE List : '%s'", urlGetCveListForProduct));
+        String productsJson = callRestApi(urlGetCveListForProduct);
+        log.info(format("CPE Return: '%s'", productsJson));
+    }
+
+
     private static String callRestApi(String urlGetCveListForProduct) {
         RestTemplate restTemplate = new RestTemplate();
         // Fetch JSON response as String wrapped in ResponseEntity
@@ -58,21 +70,4 @@ public class RestApiCalls {
         resourceUrl += cpe;
         return resourceUrl;
     }
-
-    @ShellMethod(value = "cve")
-    public void cve(@ShellOption(value = "--r") boolean rememberMe) {
-        log.info(format("remember me option is '%s'", rememberMe));
-    }
-
-//    /**
-//     * Validate command params
-//     *
-//     * @param agent
-//     */
-//    @ShellMethod(value = "ssh agent")
-//    public void sshAgent(
-//            @ShellOption(value = "--a")
-//            @Size(min = 2, max = 10) String agent) {
-//        log.info(format("adding agent '%s'", agent));
-//    }
 }

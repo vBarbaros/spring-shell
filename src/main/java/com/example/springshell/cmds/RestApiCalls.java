@@ -24,7 +24,7 @@ public class RestApiCalls {
         String urlConvertToCpeVersion = getFinalUrlConvertToCpeVersion(toCpeVersion);
 
         String json = getRestApi(urlConvertToCpeVersion);
-        log.info(format("CPE Return: '%s'", json));
+        log.info(format("GET Return: '%s'", json));
     }
 
     @ShellMethod(key = "cve-for", value = "Outputs a list of CVEs related to the product")
@@ -36,7 +36,7 @@ public class RestApiCalls {
 
         log.info(format("GET CVE List : '%s'", urlGetCveListForProduct));
         String json = getRestApi(urlGetCveListForProduct);
-        log.info(format("CPE Return: '%s'", json));
+        log.info(format("GET Return: '%s'", json));
     }
 
     @ShellMethod(key = "cve-info", value = "Outputs all available information for the specified CVE " +
@@ -47,7 +47,7 @@ public class RestApiCalls {
         String urlGetInfoOnCveId = CVE_API_HOSTNAME + "/cve/" + cveId;
         log.info(format("GET Info on CVE ID : '%s'", urlGetInfoOnCveId));
         String json = getRestApi(urlGetInfoOnCveId);
-        log.info(format("CPE Return: '%s'", json));
+        log.info(format("GET Return: '%s'", json));
     }
 
     @ShellMethod(key = "cwe-list", value = "Outputs a list of all CWEs (Common Weakness Enumeration).")
@@ -55,7 +55,7 @@ public class RestApiCalls {
         String urlGetCweList = CVE_API_HOSTNAME + "/cwe";
         log.info(format(" GET CWE List : '%s'", urlGetCweList));
         String json = getRestApi(urlGetCweList);
-        log.info(format("CPE Return: '%s'", json));
+        log.info(format("GET Return: '%s'", json));
     }
 
     @ShellMethod(key = "cwe-by-id", value = "Returns a CWEs (Common Weakness Enumeration) by it's id.")
@@ -63,7 +63,7 @@ public class RestApiCalls {
         String urlGetCweById = CVE_API_HOSTNAME + "/cwe/" + cweId;
         log.info(format(" GET CWE List : '%s'", urlGetCweById));
         String json = getRestApi(urlGetCweById);
-        log.info(format("CPE Return: '%s'", json));
+        log.info(format("GET Return: '%s'", json));
     }
 
 
@@ -73,7 +73,7 @@ public class RestApiCalls {
         String urlGetCweList = CVE_API_HOSTNAME + "/capec/" + cweId;
         log.info(format(" GET CWE List : '%s'", urlGetCweList));
         String json = getRestApi(urlGetCweList);
-        log.info(format("CPE Return: '%s'", json));
+        log.info(format("GET Return: '%s'", json));
     }
 
     @ShellMethod(key = "cwe-by-capec-id", value = "Outputs a CAPEC specified by it's id.\n" +
@@ -82,7 +82,7 @@ public class RestApiCalls {
         String urlGetCapecById = CVE_API_HOSTNAME + "/capec/show/" + capecId;
         log.info(format(" GET CAPEC By Id : '%s'", urlGetCapecById));
         String json = getRestApi(urlGetCapecById);
-        log.info(format("CPE Return: '%s'", json));
+        log.info(format("GET Return: '%s'", json));
     }
 
     @ShellMethod(key = "cwe-last", value = "Outputs the last n amount of vulnerabilities. If the limit is not specified, the default of 30 is used.")
@@ -90,7 +90,18 @@ public class RestApiCalls {
         String urlGetCweLast = CVE_API_HOSTNAME + "/last/" + limit;
         log.info(format(" GET Last N CVEs : '%s'", urlGetCweLast));
         String json = getRestApi(urlGetCweLast);
-        log.info(format("CPE Return: '%s'", json));
+        log.info(format("GET Return: '%s'", json));
+    }
+
+    @ShellMethod(key = "cwe-by-vendor", value = "Returns a list of vendors or products of a specific vendor.\n" +
+            "This API call can be used in two ways; With or without the vendor.\n" +
+            "When the link is called without a vendor, it will return a list of possible vendors.\n" +
+            "When the link is called with a vendor, it enumerates the products for said vendor.")
+    public void cweByVendor(@ShellOption(value = "-v") String vendor) {
+        String urlGetCweLast = CVE_API_HOSTNAME + "/browse/" + vendor;
+        log.info(format(" GET List of Vendors/Products of a Specific Vendor : '%s'", urlGetCweLast));
+        String json = getRestApi(urlGetCweLast);
+        log.info(format("GET Return: '%s'", json));
     }
 
 

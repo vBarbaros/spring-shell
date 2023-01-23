@@ -39,3 +39,6 @@
 1674486022430:cwe-by-capec-id -i 200
 1674486037131:cwe-by-capec-id -i 13
 1674487991549:capec-list -i 200
+1674488272582:cwe-last -n 5
+1674491311415:cve-by-vendor -v microsoft
+1674491360054:cwe-by-vendor -v microsoft

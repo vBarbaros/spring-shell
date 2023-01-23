@@ -67,6 +67,25 @@ public class RestApiCalls {
     }
 
 
+    @ShellMethod(key = "capec-list", value = "Outputs a list of CAPEC related to a CWE.\n" +
+            "CAPEC (Common Attack Pattern Enumeration and Classification) are a list of attack types commonly used by attackers.")
+    public void capecList(@ShellOption(value = "-i") int cweId) {
+        String urlGetCweList = CVE_API_HOSTNAME + "/capec/" + cweId;
+        log.info(format(" GET CWE List : '%s'", urlGetCweList));
+        String json = getRestApi(urlGetCweList);
+        log.info(format("CPE Return: '%s'", json));
+    }
+
+    @ShellMethod(key = "cwe-by-capec-id", value = "Outputs a CAPEC specified by it's id.\n" +
+            "CAPEC (Common Attack Pattern Enumeration and Classification) are a list of attack types commonly used by attackers.")
+    public void cweByCapecId(@ShellOption(value = "-i") int capecId) {
+        String urlGetCapecById = CVE_API_HOSTNAME + "/capec/show/" + capecId;
+        log.info(format(" GET CAPEC By Id : '%s'", urlGetCapecById));
+        String json = getRestApi(urlGetCapecById);
+        log.info(format("CPE Return: '%s'", json));
+    }
+
+
     private static String getRestApi(String urlGetCveListForProduct) {
         RestTemplate restTemplate = new RestTemplate();
         // Fetch JSON response as String wrapped in ResponseEntity

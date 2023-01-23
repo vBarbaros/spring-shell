@@ -85,6 +85,14 @@ public class RestApiCalls {
         log.info(format("CPE Return: '%s'", json));
     }
 
+    @ShellMethod(key = "cwe-last", value = "Outputs the last n amount of vulnerabilities. If the limit is not specified, the default of 30 is used.")
+    public void cweLast(@ShellOption(value = "-n") int limit) {
+        String urlGetCweLast = CVE_API_HOSTNAME + "/last/" + limit;
+        log.info(format(" GET Last N CVEs : '%s'", urlGetCweLast));
+        String json = getRestApi(urlGetCweLast);
+        log.info(format("CPE Return: '%s'", json));
+    }
+
 
     private static String getRestApi(String urlGetCveListForProduct) {
         RestTemplate restTemplate = new RestTemplate();

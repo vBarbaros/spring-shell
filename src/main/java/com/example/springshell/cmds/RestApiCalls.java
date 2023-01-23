@@ -23,7 +23,7 @@ public class RestApiCalls {
     public void cpeToVersion(@ShellOption(value = "-v", defaultValue = "2.3") String toCpeVersion) {
         String urlConvertToCpeVersion = getFinalUrlConvertToCpeVersion(toCpeVersion);
 
-        String json = callRestApi(urlConvertToCpeVersion);
+        String json = getRestApi(urlConvertToCpeVersion);
         log.info(format("CPE Return: '%s'", json));
     }
 
@@ -35,7 +35,7 @@ public class RestApiCalls {
         String urlGetCveListForProduct = CVE_API_HOSTNAME + "/cvefor/" + keys[0] + "/" + keys[1];
 
         log.info(format("GET CVE List : '%s'", urlGetCveListForProduct));
-        String json = callRestApi(urlGetCveListForProduct);
+        String json = getRestApi(urlGetCveListForProduct);
         log.info(format("CPE Return: '%s'", json));
     }
 
@@ -46,7 +46,7 @@ public class RestApiCalls {
         // CVE-2016-3333
         String urlGetInfoOnCveId = CVE_API_HOSTNAME + "/cve/" + cveId;
         log.info(format("GET Info on CVE ID : '%s'", urlGetInfoOnCveId));
-        String json = callRestApi(urlGetInfoOnCveId);
+        String json = getRestApi(urlGetInfoOnCveId);
         log.info(format("CPE Return: '%s'", json));
     }
 
@@ -54,7 +54,7 @@ public class RestApiCalls {
     public void cweList() {
         String urlGetCweList = CVE_API_HOSTNAME + "/cwe";
         log.info(format(" GET CWE List : '%s'", urlGetCweList));
-        String json = callRestApi(urlGetCweList);
+        String json = getRestApi(urlGetCweList);
         log.info(format("CPE Return: '%s'", json));
     }
 
@@ -62,12 +62,12 @@ public class RestApiCalls {
     public void cweById(@ShellOption(value = "-i") int cweId) {
         String urlGetCweById = CVE_API_HOSTNAME + "/cwe/" + cweId;
         log.info(format(" GET CWE List : '%s'", urlGetCweById));
-        String json = callRestApi(urlGetCweById);
+        String json = getRestApi(urlGetCweById);
         log.info(format("CPE Return: '%s'", json));
     }
 
 
-    private static String callRestApi(String urlGetCveListForProduct) {
+    private static String getRestApi(String urlGetCveListForProduct) {
         RestTemplate restTemplate = new RestTemplate();
         // Fetch JSON response as String wrapped in ResponseEntity
         ResponseEntity<String> convertedCpe = restTemplate.getForEntity(urlGetCveListForProduct, String.class);

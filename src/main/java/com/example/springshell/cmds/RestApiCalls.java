@@ -98,9 +98,27 @@ public class RestApiCalls {
             "When the link is called without a vendor, it will return a list of possible vendors.\n" +
             "When the link is called with a vendor, it enumerates the products for said vendor.")
     public void cweByVendor(@ShellOption(value = "-v") String vendor) {
-        String urlGetCweLast = CVE_API_HOSTNAME + "/browse/" + vendor;
-        log.info(format(" GET List of Vendors/Products of a Specific Vendor : '%s'", urlGetCweLast));
-        String json = getRestApi(urlGetCweLast);
+        String urlGetCweByVendor = CVE_API_HOSTNAME + "/browse/" + vendor;
+        log.info(format(" GET List of Vendors/Products of a Specific Vendor : '%s'", urlGetCweByVendor));
+        String json = getRestApi(urlGetCweByVendor);
+        log.info(format("GET Return: '%s'", json));
+    }
+
+    @ShellMethod(key = "cwe-by-vendor-product", value = "When vendor and product are specified, this API call returns a " +
+            "list of CVEs related to the product. The output of the browse call can be used for this.")
+    public void cweByVendorProduct(@ShellOption(value = "-v") String vendor, @ShellOption(value = "-p") String product) {
+        String urlGetCweByVendorProduct = CVE_API_HOSTNAME + "/search/" + vendor + "/" + product;
+        log.info(format(" GET List of Vendors/Products of a Specific Vendor : '%s'", urlGetCweByVendorProduct));
+        String json = getRestApi(urlGetCweByVendorProduct);
+        log.info(format("GET Return: '%s'", json));
+    }
+
+    @ShellMethod(key = "cve-by-key-value", value = "Returns all CVEs that are linked by a given key/value pair")
+    public void cveByKeyValue(@ShellOption(value = "-k") String key, @ShellOption(value = "-v") String value) {
+        // cwe-by-key-value -k msbulletin.bulletin_id -v MS16-098
+        String urlGetCveByKeyValue = CVE_API_HOSTNAME + "/link/" + key + "/" + value;
+        log.info(format(" GET List of Vendors/Products of a Specific Vendor : '%s'", urlGetCveByKeyValue));
+        String json = getRestApi(urlGetCveByKeyValue);
         log.info(format("GET Return: '%s'", json));
     }
 

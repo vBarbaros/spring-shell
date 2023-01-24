@@ -42,3 +42,8 @@
 1674488272582:cwe-last -n 5
 1674491311415:cve-by-vendor -v microsoft
 1674491360054:cwe-by-vendor -v microsoft
+1674525573693:cwe-by-vendor-product -v microsoft -p excel
+1674525623351:When vendor and product are specified, this API call returns a list of CVEs related to the product. The output of the browse call can be used for this
+1674525646970:cwe-by-vendor-product -v microsoft -p excel
+1674525975225:cve-by-key-value -k msbulletin.bulletin_id -v MS16-098
+1674526002594:cwe-by-key-value -k msbulletin.bulletin_id -v MS16-098
